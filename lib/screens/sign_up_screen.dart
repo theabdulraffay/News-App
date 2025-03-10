@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/bloc/bloc/sign_up_bloc.dart';
 import 'package:news_app/bloc/bloc/states/sign_up_states.dart';
 import 'package:news_app/screens/home_screen.dart';
+import 'package:news_app/screens/login_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -59,6 +60,16 @@ class SignUpScreen extends StatelessWidget {
                             : const Text('Sign Up'),
                   );
                 },
+              ),
+
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (builder) => LoginScreen()),
+                  );
+                },
+                child: Text('Login '),
               ),
             ],
           ),

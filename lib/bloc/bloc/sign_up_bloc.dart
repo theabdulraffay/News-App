@@ -10,6 +10,28 @@ part 'sign_up_state.dart';
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   SignUpBloc() : super(SignUpInitialState()) {
     on<SignUp>(signupevent);
+    on<Login>(loginEvent);
+    on<SignOut>(signoutEvent);
+  }
+
+  void signoutEvent(SignOut event, Emitter<SignUpState> emit) async {
+    await FirebaseService.signOut();
+    emit(SignUpInitialState());
+  }
+
+  void loginEvent(Login event, Emitter<SignUpState> emit) async {
+    emit(state.copyWith(loginState: LoginLoading()));
+
+    try {
+      await FirebaseService.signInWithEmailAndPassword(
+        event.email,
+        event.password,
+      );
+
+      emit(state.copyWith(loginState: LoginSuccess()));
+    } catch (e) {
+      emit(state.copyWith(loginState: LoginFailure(error: e.toString())));
+    }
   }
 
   void signupevent(SignUp event, Emitter<SignUpState> emit) async {
