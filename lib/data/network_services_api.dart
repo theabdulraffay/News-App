@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class NetworkServicesApi {
-  Future<Map<String, dynamic>> getApi(String url) async {
+  static Future<Map<String, dynamic>> getApi(String url) async {
     try {
       final response = await http
           .get(Uri.parse(url))
