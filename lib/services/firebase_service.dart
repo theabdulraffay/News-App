@@ -6,7 +6,7 @@ class FirebaseService {
     String password,
   ) async {
     try {
-      var cred = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
