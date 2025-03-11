@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/bloc/bloc/states/login_states.dart';
-import 'package:news_app/bloc/bloc/states/sign_up_states.dart';
+import 'package:news_app/bloc/signup_bloc/states/login_states.dart';
+import 'package:news_app/bloc/signup_bloc/states/sign_up_states.dart';
 import 'package:news_app/services/firebase_service.dart';
 
 part 'sign_up_event.dart';
